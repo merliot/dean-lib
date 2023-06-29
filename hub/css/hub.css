@@ -17,10 +17,10 @@ body, html {
 	flex-wrap: nowrap;
 	flex-direction: row;
 	align-content: space-between;
-	height: 175px;
+	height: 135px;
 	border-bottom-style: solid;
-	border-bottom-width: 2px;
-	padding-bottom: 20px;
+	border-bottom-width: 1px;
+	padding-bottom: 15px;
 }
 
 .children > div {
