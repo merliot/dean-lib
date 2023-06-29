@@ -23,7 +23,7 @@ function iconName(child) {
 	if (child.Online) {
 		status = "online"
 	}
-	return "images/" + status + ".jpg"
+	return "images/" + status + ".png"
 }
 
 function newIcon(child) {

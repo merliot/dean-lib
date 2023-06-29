@@ -3,7 +3,6 @@ body, html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: rgb(200,200,200);
 }
 
 .flex-container {
@@ -19,7 +18,6 @@ body, html {
 	flex-direction: row;
 	align-content: space-between;
 	height: 175px;
-	background-color: rgb(200,200,200);
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 	padding-bottom: 20px;
