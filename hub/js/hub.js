@@ -85,30 +85,30 @@ function Run(ws) {
 	var conn
 
 	function connect() {
-		console.log("hub", "connecting...")
+		console.log("[hub]", "connecting...")
 		conn = new WebSocket(ws)
 
 		conn.onopen = function(evt) {
-			console.log("hub", "open")
+			console.log("[hub]", "open")
 			clearScreen()
 			conn.send(JSON.stringify({Path: "get/state"}))
 		}
 
 		conn.onclose = function(evt) {
-			console.log("hub", "close")
+			console.log("[hub]", "close")
 			clearScreen()
 			setTimeout(connect, 1000)
 		}
 
 		conn.onerror = function(err) {
-			console.log("hub", "error", err)
+			console.log("[hub]", "error", err)
 			conn.close()
 		}
 
 		conn.onmessage = function(evt) {
 			var msg = JSON.parse(evt.data)
 
-			console.log('hub', msg)
+			console.log('[hub]', msg)
 
 			switch(msg.Path) {
 			case "state":
