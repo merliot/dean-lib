@@ -80,6 +80,22 @@ function update(child) {
 	}
 }
 
+var pingID
+
+function offline() {
+	clearScreen()
+	clearInterval(pingID)
+}
+
+function ping() {
+	conn.send("ping")
+}
+
+function online() {
+	// for Koyeb work-around
+	pingID = setInterval(ping, 1500)
+}
+
 function Run(ws) {
 
 	var conn
@@ -90,13 +106,13 @@ function Run(ws) {
 
 		conn.onopen = function(evt) {
 			console.log("[hub]", "open")
-			clearScreen()
 			conn.send(JSON.stringify({Path: "get/state"}))
+
 		}
 
 		conn.onclose = function(evt) {
 			console.log("[hub]", "close")
-			clearScreen()
+			offline()
 			setTimeout(connect, 1000)
 		}
 
@@ -107,12 +123,12 @@ function Run(ws) {
 
 		conn.onmessage = function(evt) {
 			var msg = JSON.parse(evt.data)
-
 			console.log('[hub]', msg)
 
 			switch(msg.Path) {
 			case "state":
 				saveState(msg)
+				online()
 				break
 			case "connected":
 			case "disconnected":
