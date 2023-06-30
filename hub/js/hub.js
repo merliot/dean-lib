@@ -1,4 +1,5 @@
 var conn
+var pingID
 var lastImg
 var shown = false
 
@@ -80,8 +81,6 @@ function update(child) {
 		img.src = iconName(child)
 	}
 }
-
-var pingID
 
 function offline() {
 	clearScreen()
