@@ -1,3 +1,4 @@
+var conn
 var lastImg
 var shown = false
 
@@ -97,8 +98,6 @@ function online() {
 }
 
 function Run(ws) {
-
-	var conn
 
 	function connect() {
 		console.log("[hub]", "connecting...")
