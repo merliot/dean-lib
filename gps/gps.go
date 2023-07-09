@@ -47,7 +47,7 @@ func (g *Gps) Subscribers() dean.Subscribers {
 }
 
 func (g *Gps) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	g.ServeFS(fs, w, r)
+	http.FileServer(http.FS(fs)).ServeHTTP(w, r)
 }
 
 func (g *Gps) Run(i *dean.Injector) {
